@@ -6,19 +6,19 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "makcimerrr.com",
+    template: "%s | Portfolio",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "Aspiring FullStack Developer | Zone01",
   openGraph: {
-    title: "chronark.com",
+    title: "Makcimerrr's Portfolio",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+      "Aspiring FullStack Developer | Zone01",
+    url: "https://makcimerrr.com",
+    siteName: "makcimerrr.com",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://cdn.discordapp.com/attachments/746084850062196778/1187134556936077363/clickwallpapers-DemonSlayerKimetsunoYaiba-anime-4k-img5.jpg?ex=662035b6&is=660dc0b6&hm=51c39ff554f5bce2cf4922fe4b2ec7617bcd736eade40d190cbac9407141d8db&",
         width: 1920,
         height: 1080,
       },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "Vayne",
     card: "summary_large_image",
   },
   icons: {

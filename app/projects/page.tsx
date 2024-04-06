@@ -84,22 +84,15 @@ export default async function ProjectsPage() {
                 <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
                   {featured.description}
                 </p>
+                <br/>
                 <div className="absolute bottom-4 md:bottom-8">
                   <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
-                    Read more <span aria-hidden="true">&rarr;</span>
+                    Read more more <span aria-hidden="true">&rarr;</span>
                   </p>
                 </div>
               </article>
             </Link>
           </Card>
-
-          <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
-            {[top2, top3].map((project) => (
-              <Card key={project.slug}>
-                <Article project={project} views={views[project.slug] ?? 0} />
-              </Card>
-            ))}
-          </div>
         </div>
         <div className="hidden w-full h-px md:block bg-zinc-800" />
 
