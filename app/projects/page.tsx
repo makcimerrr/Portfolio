@@ -102,6 +102,7 @@ export default async function ProjectsPage() {
                   .filter((_, i) => i % 3 === 0)
                   .map((project) => (
                       <Card key={project.slug}>
+
                       </Card>
                   ))}
             </div>
