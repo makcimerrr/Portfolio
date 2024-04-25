@@ -29,6 +29,7 @@ export default async function ProjectsPage() {
               new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
       );
 
+  // @ts-ignore
   return (
       <div className="relative pb-16">
         <Navigation />
@@ -88,7 +89,7 @@ export default async function ProjectsPage() {
                   .filter((_, i) => i % 3 === 0)
                   .map((project) => (
                       <Card key={project.slug}>
-                        <Article project={project} views={[project.slug] ?? 0} />
+                        <Article project={project} views={0} />
                       </Card>
                   ))}
             </div>
@@ -97,7 +98,7 @@ export default async function ProjectsPage() {
                   .filter((_, i) => i % 3 === 1)
                   .map((project) => (
                       <Card key={project.slug}>
-                        <Article project={project} views={[project.slug] ?? 0} />
+                        <Article project={project} views={0} />
                       </Card>
                   ))}
             </div>
@@ -106,7 +107,7 @@ export default async function ProjectsPage() {
                   .filter((_, i) => i % 3 === 2)
                   .map((project) => (
                       <Card key={project.slug}>
-                        <Article project={project} views={[project.slug] ?? 0} />
+                        <Article project={project} views={0} />
                       </Card>
                   ))}
             </div>

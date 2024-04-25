@@ -1,10 +1,11 @@
-import type { Project } from "@/.contentlayer/generated";
+//import type { Project } from "@/.contentlayer/generated";
 import Link from "next/link";
 import { Eye, View } from "lucide-react";
 
+type Projects = {     published: boolean;     title: string;     description: string;     date: string;     repository: string;     body: {         raw: string;         code: string;     };     _id: string;     _raw: {         sourceFilePath: string;         sourceFileName: string;         sourceFileDir: string;         contentType: string;         flattenedPath: string;     };     type: string;     path: string;     slug: string; }
 
 type Props = {
-	project: Project;
+	project: Projects;
 	views: number;
 };
 
