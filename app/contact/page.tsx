@@ -13,9 +13,9 @@ const socials = [
 	},
 	{
 		icon: <Mail size={20} />,
-		href: "mailto:maxim3pro@proton.me",
+		href: "mailto:maximedubois@makcimerrr.com",
 		label: "Email",
-		handle: "maxim3pro@proton.me",
+		handle: "contact@makcimerrr.com",
 	},
 	{
 		icon: <Github size={20} />,
