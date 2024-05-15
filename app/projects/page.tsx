@@ -13,8 +13,8 @@ export const revalidate = 60;
 export default async function ProjectsPage() {
 
   const featured = projectsData.find((project) => project.slug === "sample-project")!;
-  const top2 = projectsData.find((project) => project.slug === "sample-project")!;
-  const top3 = projectsData.find((project) => project.slug === "sample-project")!;
+  const top2 = projectsData.find((project) => project.slug === "krealabs")!;
+  const top3 = projectsData.find((project) => project.slug === "social-network")!;
   const sorted = projectsData
       .filter((p) => p.published)
       .filter(
