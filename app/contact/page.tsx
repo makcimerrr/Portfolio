@@ -1,21 +1,21 @@
 "use client";
-import { Github, Mail, Twitter } from "lucide-react";
+import {Github, Linkedin, Mail, Twitter} from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 
 const socials = [
 	{
-		icon: <Twitter size={20} />,
-		href: "https://twitter.com/fn_vayne",
-		label: "Twitter",
-		handle: "@fn_vayne",
+		icon: <Linkedin size={20} />,
+		href: "https://www.linkedin.com/in/maxime-dubois-0265a4292/",
+		label: "Linkedin",
+		handle: "Maxime Dubois",
 	},
 	{
 		icon: <Mail size={20} />,
-		href: "mailto:maximedubois@makcimerrr.com",
+		href: "mailto:maxim3pro@proton.me",
 		label: "Email",
-		handle: "contact@makcimerrr.com",
+		handle: "maxim3pro@proton.me",
 	},
 	{
 		icon: <Github size={20} />,
