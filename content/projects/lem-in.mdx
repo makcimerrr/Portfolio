@@ -6,97 +6,57 @@ date: 2024-04-23
 published: true
 ---
 
-# Lem-in
-The task of the project is [here](https://github.com/01-edu/public/tree/master/subjects/lem-in)
-Wiki [here](https://github.com/makcimerrr/lem-in/wiki/What-the-lem-in)
-# Chapters
-- [Briefly about the project](#Briefly-about-the-project)
-- [Graphs in file](#Graphs-in-file)
-- [How use program](#How-use-program)
-- [How Program works](#How-Program-works)
-- [Authors](#Authors)
-# Briefly about the project
-This is a console program that builds a graph based on the data transmitted by the user and distributes the ants along the paths so that everyone reaches from `A` to `B` in a minimum of steps.
+#   🐜 LEM-IN
+## DESCRIPTION
 
-![lem-in preview](https://github.com/Dias1c/wiki/blob/master/lem-in/images/lem-in-demo.gif?raw=true)
-> Also you can use web version for visualize your result. To do this, insert the map with result into the `text result` block and click on Set Params. Now your graph is represented graphically.
-# How use program
-> Program takes only 1 argument.
-It can be filename or flags.
-#### Default:
-- `"filename"` - your file path with graph data
-#### Flags:
-- `--file="filename"` - as default input. Just an explicit launch with a file
-- `--http=":port"` - starts run server on your port. Using for visualization.
+This project is a simulation of an ant farm. It is written in Go and aims to find the quickest way to get a number of ants across a colony, from the start room to the end room.
 
-For run project:
+## Project Overview
+
+An ant farm is created with links and rooms. The ants are placed on one side and they need to find the exit. The goal is to bring them to the end room with as few moves as possible. The shortest path is not necessarily the simplest.
+
+The program displays the results in a specific format on the standard output:
+
+```console
+number_of_ants
+the_rooms
+the_links
+
+Lx-y Lz-w Lr-o ...
+```
+
+Where `x, z, r` represent the ants numbers and `y, w, o` represent the rooms names.
+
+## Installation
+
+This project requires Go 1.16 or later. To install, clone this repository and build using Go:
+
 ```bash
-go run ./cmd (filename | --http=:port | --file=filename)
+git clone https://learn.zone01dakar.sn/git/papgueye/lem-in.git
+cd lem-in
+go build
 ```
-### Example:
-Run program:
+
+## Usage
+
+To use the program, pass the path of a text file containing the ant farm description as an argument. The format of the file should be as described in the Project Overview.
+
 ```bash
-$ go run ./cmd example.txt
-#My comment
-3
-##start
-start 2 2
-r1 3 1
-r2 3 3
-r3 4 1
-##end
-end 5 2
-
-start-r1
-start-r2
-r1-r3
-r2-end
-r3-end
-L1-r2 L2-r1
-L1-end L2-r3 L3-r2
-L2-end L3-end
-```
-Also Get Steps Count:
-```bash
-$ go run ./cmd example.txt | grep '^L' | wc -l
-3
-```
-Run visualization:
-```bash
-$ go run ./cmd --http=:8080
-YYYY/MM/DD hh:mm:ss Server started on http://localhost:8080
+./lem-in path/to/your/file.txt
 ```
 
-The program is provided with information about the graph (anthill) at the input:
+## Project Structure
 
-- Number of `ants` (ants > 0)
-- The name of the vertices and their coordinates. The `##start` and `##end` commands specify the starting and ending vertices of the path. (x > 0 & y > 0)
-- Edges connecting vertices.
-- Optional comments starting by `#` (program ignore them)
-# Graphs in file
-The map file looks like this
-```txt
-#My comment
-3
-##start
-start 2 2
-r1 3 1
-r2 3 3
-r3 4 1
-##end
-end 5 2
+This project makes use of several key data structures: Room, Tunnel, Ant, and AntFarm.
 
-start-r1
-start-r2
-r1-r3
-r2-end
-r3-end
-```
-# How Program works
-![short in diagram](https://raw.githubusercontent.com/Dias1c/wiki/0d6d9b8ee728e4fb1c27e1b82fcfd8b6af6ad420/lem-in/images/main.svg)
-> To learn more, read the [wiki](https://github.com/makcimerrr/lem-in/wiki/What-the-lem-in)
-### Suurballe's algorithm Links:
-- [Detailed explanation](https://en.wikipedia.org/wiki/Suurballe%27s_algorithm)
-- [Briefly in pictures](http://www.macfreek.nl/memory/Disjoint_Path_Finding)
-# Authors
-- [makcimerrr](https://github.com/makcimerrr)
+- Room: Represents each room and contains the room name and its coordinates.
+- Link: Represents each tunnel and contains pointers to the two rooms it connects.
+- Ant: Represents each ant, containing an identifier and its current room.
+- AntFarm: Represents the entire ant farm and contains a list of all ants, rooms, and links, and pointers to the start and end rooms.
+
+Key functions:
+
+
+##  AUTHORS
++   [@maxime](https://zone01normandie.org/git/mdubois)
++   [@romain](https://zone01normandie.org/git/rclatot)

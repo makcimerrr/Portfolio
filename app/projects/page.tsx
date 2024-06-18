@@ -12,8 +12,8 @@ const redis = Redis.fromEnv();
 export const revalidate = 60;
 export default async function ProjectsPage() {
 
-  const featured = projectsData.find((project) => project.slug === "lem-in")!;
-  const top2 = projectsData.find((project) => project.slug === "krealabs")!;
+  const featured = projectsData.find((project) => project.slug === "krealabs")!;
+  const top2 = projectsData.find((project) => project.slug === "lem-in")!;
   const top3 = projectsData.find((project) => project.slug === "social-network")!;
   const sorted = projectsData
       .filter((p) => p.published)

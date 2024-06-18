@@ -2,52 +2,78 @@
 title: Social Network Project
 description: A social network project built with Next.js
 repository: https://github.com/makcimerrr/social-network
-date: 2024-04-24
+date: 2024-06-18
 published: true
 ---
 
-# Social Network Project
+# SOCIAL NETWORK
 
-## Overview
+## 📝 Description
 
-This project is a social network application developed using Next.js. It aims to provide a platform for users to connect, share content, and interact with each other in a social setting.
+The aim of the project is to recreate a social network like Facebook or Linkedin.
 
-## Features
+The project is split into 2 parts, a server in [golang](https://go.dev) and a front end in [Next.js](https://nextjs.org).
 
-- **User Authentication**: Allows users to sign up, log in, and manage their accounts securely.
-- **Profile Management**: Users can edit their profiles, upload profile pictures, and customize their information.
-- **Posts**: Users can create, edit, and delete posts. They can also like, comment on, and share posts.
-- **Friendship**: Users can send friend requests, accept or decline friend requests, and manage their list of friends.
-- **Messaging**: Users can send direct messages to their friends and participate in group chats.
+An [SQL database migration system](https://github.com/golang-migrate/migrate). A user authentication system
+Creating and managing posts
+Post display management according to profile type (public, private, semi-private)
+A private chat room with emojis
+User group management
+Event management via groups
+Follow-up management for other members (followers & followings)
+Notification management (online and offline)
 
-## Technologies Used
 
-- **Next.js**: The project is built using Next.js, a React framework for server-side rendering and static site generation.
-- **React**: Next.js is built on top of React, providing a robust foundation for building interactive user interfaces.
-- **Firebase**: Firebase is used for backend services such as authentication, database, and storage.
-- **Tailwind CSS**: Tailwind CSS is used for styling the components, providing a customizable and utility-first approach to CSS.
+___
+## ⚙️ Installation & usage
 
-## Installation
+The project run via [Docker](https://www.docker.com) with a `Docker Compose` which allows the 2 programs to be launched (the SQL database being in the backend), so make sure you [install Docker](https://docs.docker.com/compose/install/) before running the site launch command.
 
-To run this project locally, follow these steps:
+```sh
+sh ./launch.sh
+```
 
-1. Clone the repository from [GitHub](https://github.com/makcimerrr/social-network).
-2. Navigate to the project directory.
-3. Install dependencies by running `npm install` or `yarn install`.
-4. Set up Firebase configuration by creating a Firebase project and adding the necessary credentials to the project.
-5. Start the development server by running `npm run dev` or `yarn dev`.
-6. Access the application in your web browser at `http://localhost:3000`.
+To launch manually, use the following commands:
+```sh
+# console 1 (serveur golang)
+cd back
+go run .
+```
+```sh
+# console 2 (front)
+cd front
+npm i
+npm run dev
+```
+___
+## 🔗 Dependencies
 
-## Contributors
+### **Golang server**
+The server uses `version 22` of [golang](https://go.dev) and the following libraries:
+- [go-sqlite3](https://github.com/mattn/go-sqlite3)
+- [uuid](https://github.com/gofrs/uuid)
+- [gorilla/websocket](https://pkg.go.dev/github.com/gorilla/websocket)
 
-- **[Your Name](https://github.com/yourusername)** - Project Lead
-- **[Contributor Name](https://github.com/contributorusername)** - Frontend Developer
-- **[Contributor Name](https://github.com/contributorusername)** - Backend Developer
+### **Le front**
+The frontend uses version 14 of [Next.js](https://nextjs.org), `html` and `css` and the following [npm](https://www.npmjs.com) dependencies:
+- [@emotion/react](https://www.npmjs.com/package/@emotion/react)
+- [@emotion/styled](https://www.npmjs.com/package/@emotion/styled)
+- [@mui/icons-material](https://www.npmjs.com/package/@mui/icons-material)
+- [@mui/material](https://www.npmjs.com/package/@mui/material)
+- [emoji-mart](https://www.npmjs.com/package/emoji-mart)
+- [emoji-picker-react](https://www.npmjs.com/package/emoji-picker-react)
+- [next.js](https://www.npmjs.com/package/next)
+- [react](https://www.npmjs.com/package/react)
+- [react-datepicker](https://www.npmjs.com/package/react-datepicker)
+- [react-dom](https://www.npmjs.com/package/react-dom)
+- [react-hot-toast](https://www.npmjs.com/package/react-hot-toast)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [zxcvbn](https://www.npmjs.com/package/zxcvbn)
+___
+## 🧑‍💻 Authors
 
-## Feedback and Contributions
-
-Feedback and contributions are welcome! If you find any issues or have suggestions for improvement, please [open an issue](https://github.com/makcimerrr/social-network/issues) or [create a pull request](https://github.com/makcimerrr/social-network/pulls) on GitHub.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/makcimerrr/social-network/blob/main/LICENSE) file for details.
++ [Enzo FEMENIA](https://zone01normandie.org/git/efemenia)
++ [Fabien OLIVIER](https://zone01normandie.org/git/folivier)
++ [Matthieu CATELAIN](https://zone01normandie.org/git/mcatelai)
++ [Maxime DUBOIS](https://zone01normandie.org/git/mdubois)
++ [Romain CLATOT](https://zone01normandie.org/git/rclatot)
