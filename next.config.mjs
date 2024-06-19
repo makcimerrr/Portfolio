@@ -4,9 +4,6 @@ import { withContentlayer } from "next-contentlayer";
 const nextConfig = {
 	pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 	experimental: {
-		metadata: {
-			metadataBase: new URL('https://makcimerrr.com'),
-		},
 		mdxRs: true,
 	},
 };
