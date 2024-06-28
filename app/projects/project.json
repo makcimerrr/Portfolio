@@ -92,7 +92,7 @@
   {
     "published": true,
     "title": "Discord Bot",
-    "description": "Ce bot Discord automatise la création de threads pour les offres d'emploi LinkedIn et Indeed pour tout type de poste et partout dans le monde.",
+    "description": "Ce bot Discord automatise la création de threads pour les offres d'emploi LinkedIn et Indeed et API tiers pour tout type de poste et partout dans le monde. Il a aussi pour but d'aider à la mise en relation des apprenants durant leurs cursus de formation.",
     "date": "2024-06-14",
     "repository": "https://github.com/makcimerrr/discord-bot",
     "_id": "projects/discord-bot.mdx",
