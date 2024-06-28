@@ -1,67 +1,47 @@
 ---
 title: Bot Discord de Recherches d'Emplois
 description: 🤖 Ce projet consiste en un bot Discord qui automatise la création de threads pour les offres d'emploi publiées sur LinkedIn et Indeed. Le bot récupère les dernières offres pour des développeurs en alternance à Rouen, France, les affiche dans un canal dédié et met à jour les informations deux fois par jour. Il offre également une commande manuelle pour forcer la mise à jour des offres d'emploi.
-repository: makcimerrr/discord-bot
+repository: makcimerrr/bot-discord-zone01
 date: 2024-06-14
 published: true
 ---
 
-# Bot Discord de Recherches d'Emplois
+# 🤖 Bot d'Aide pour Apprenants
 
-Ce projet est un bot Discord qui crée automatiquement des threads dans un canal Forum pour des offres d'emploi publiées sur LinkedIn et Indeed. Le bot récupère des offres d'emploi pour des alternants développeurs à Rouen, France, et met à jour les offres deux fois par jour. Vous pouvez également forcer une mise à jour manuelle avec une commande dédiée.
+Ce bot Discord est conçu pour aider à la gestion des offres d'emploi et à la coordination des demandes d'aide au sein d'un serveur Discord spécifique.
 
 ## Fonctionnalités
 
-- Récupération des offres d'emploi depuis LinkedIn et Indeed.
-- Création automatique de threads pour chaque offre d'emploi dans un canal Forum Discord.
-- Mise à jour automatique des offres d'emploi deux fois par jour.
-- Commande manuelle pour forcer la mise à jour des offres d'emploi.
+- **Mise à jour des Offres d'Emploi :** Le bot récupère automatiquement les offres d'emploi depuis plusieurs sources (LinkedIn, Indeed, et une API personnalisée) et les publie dans un canal dédié.
+- **Gestion des Demandes d'Aide :** Les utilisateurs peuvent signaler qu'ils ont besoin d'aide en réagissant à un message spécifique. Le bot leur attribue un rôle et modifie leur pseudo pour indiquer qu'ils ont besoin d'aide.
+- **Planification Automatique :** Les offres d'emploi sont mises à jour deux fois par jour (matin et soir) grâce à un scheduler intégré.
 
-## Prérequis
+## Configuration
 
-- Python 3.8 ou supérieur
-- Un serveur Discord avec les permissions nécessaires pour créer des threads
-- Clés API pour les services LinkedIn et Indeed
+Pour utiliser ce bot, vous devez :
+1. Avoir Python 3.7+ installé.
+2. Installer les dépendances nécessaires via `pip install -r requirements.txt`.
+3. Définir les variables d'environnement requises, notamment le TOKEN Discord.
 
-## Installation
+## Variables d'Environnement
 
-1. Clonez le dépôt :
-    ```sh
-    git clone https://github.com/votre-utilisateur/nom-du-repo.git
-    cd nom-du-repo
-    ```
-
-2. Installez les dépendances :
-    ```sh
-    pip install -r requirements.txt
-    ```
-
-3. Configurez les variables d'environnement :
-    - `TOKEN` : Votre token de bot Discord.
-    - `RAPIDAPI_KEY_LINKEDIN` : Votre clé API RapidAPI pour LinkedIn.
-    - `RAPIDAPI_KEY_INDEED` : Votre clé API RapidAPI pour Indeed.
-
-4. Mettez à jour l'ID du canal Forum dans le script (`forum_channel_id`) avec l'ID de votre canal Forum Discord.
+- `TOKEN`: Token d'authentification de votre bot Discord.
 
 ## Utilisation
 
-Exécutez le bot :
-```sh
-python bot.py
-```
-Le bot commencera à fonctionner et mettra à jour les offres d'emploi deux fois par jour à 10h et 18h. Vous pouvez également forcer une mise à jour manuelle en utilisant la commande `!update_jobs` sur votre serveur Discord.
-
-## Configuration des APIs
-
-1. LinkedIn
-    - Inscrivez-vous sur [RapidAPI](https://rapidapi.com/hub).
-    - Abonnez-vous à l'API LinkedIn Jobs Search.
-    - Notez votre clé API et mettez-la dans RAPIDAPI_KEY_LINKEDIN.
-2. Indeed
-    - Inscrivez-vous sur [RapidAPI](https://rapidapi.com/hub).
-    - Abonnez-vous à l'API Indeed.
-    - Notez votre clé API et mettez-la dans RAPIDAPI_KEY_INDEED.
+Pour démarrer le bot, exécutez le fichier Python `bot.py`. Assurez-vous que votre bot a les autorisations nécessaires sur votre serveur Discord pour modifier les pseudonymes et gérer les rôles.
 
 ## Contribuer
 
-Les contributions sont les bienvenues ! Veuillez ouvrir une issue ou une pull request pour discuter de ce que vous aimeriez changer ou ajouter.
+Si vous souhaitez contribuer à ce projet, vous pouvez :
+
+- Soumettre des suggestions d'amélioration via les issues.
+- Proposer des pull requests pour résoudre des problèmes ou ajouter des fonctionnalités.
+
+## Auteurs
+
+Ce bot a été créé par [Votre Nom] pour [Nom du Serveur Discord].
+
+## Licence
+
+Ce projet est sous licence MIT. Pour plus de détails, consultez le fichier LICENSE.
