@@ -1,0 +1,166 @@
+---
+title: Filler
+description: 🦀 Implementation of the Filler game in Rust
+repository: makcimerrr/filler
+date: 2024-11-22
+published: true
+---
+
+# 🧩 Filler Game - Implémentation en Rust 🦀
+## 🎮 Le Jeu : Qu'est-ce que Filler ?
+Filler est un jeu stratégique algorithmique où deux robots s'affrontent sur une grille appelée "Anfield", visant à conquérir le plus de territoire possible en utilisant des pièces aléatoires fournies par un moteur de jeu.
+
+### 🏆 Objectif
+Les joueurs placent des pièces aléatoires à tour de rôle, chaque pièce devant **chevaucher d'une cellule** avec leur territoire précédent. Le joueur qui capture le plus de territoire gagne ! Si un joueur ne peut pas placer une pièce, il doit s'arrêter, tandis que l'autre joueur continue jusqu'à ce qu'il ne puisse plus placer de pièces non plus.
+
+### 🏟️ L'Anfield (Grille)
+L'Anfield est une grille de lignes et de colonnes configurables. Chaque joueur commence à une position unique (`@` pour le Joueur 1 et `$` pour le Joueur 2) et doit étendre son territoire de manière stratégique. Voici un exemple de grille de départ (30 x 14) :
+
+```
+..............................
+..............................
+..$...........................
+..............................
+..............................
+..............................
+..............................
+..............................
+..............................
+..............................
+...........................@..
+..............................
+..............................
+```
+
+### 🧩 Pièces
+À chaque tour, le moteur de jeu fournit une nouvelle pièce de taille et forme aléatoires. Voici quelques exemples :
+
+- **Pièce 2x2** :
+  ```
+  .#
+  #.
+  ```
+
+- **Pièce 5x4** :
+  ```
+  .##..
+  .##..
+  ..#..
+  ...#.
+  ```
+
+- **Pièce 6x3** :
+  ```
+  .##...
+  ###...
+  #..#..
+  ```
+
+### 🤖 Robots
+Deux robots s'affrontent pour le territoire, et chaque tour, une nouvelle pièce est placée sur la grille. Les joueurs marquent des points à chaque placement réussi.
+
+Le jeu se termine lorsqu'aucun joueur ne peut plus placer de pièce ou si l'un d'eux rencontre une erreur comme un dépassement de temps. Le gagnant est celui qui a capturé le plus de territoire !
+
+## 🦀 Implémentation en Rust - Structure du Programme
+
+Cette solution Filler en Rust inclut des modules organisés pour un code propre et maintenable :
+
+### 📂 Structure des Fichiers
+
+- **`main.rs`** : Point d'entrée qui initialise et gère la boucle du jeu.
+- **`input.rs`** : Analyse les entrées provenant du moteur de jeu.
+- **`player.rs`** : Contient la structure `Player` et gère les opérations des joueurs.
+- **`grid.rs`** : Gère l'état de la grille et vérifie les placements valides.
+- **`piece.rs`** : Gère les données des pièces du moteur de jeu et la logique de placement des pièces sur la grille.
+- **`distance.rs`** : Calcule les distances entre les pièces et le territoire de l'adversaire.
+- **`score.rs`** : Évalue et attribue des scores aux placements potentiels.
+
+### 🔍 Aperçu de la Logique
+1. **Initialisation** : `main.rs` configure les joueurs et la grille, lançant ainsi le jeu.
+2. **Analyse des Entrées** : `input.rs` traite le numéro du joueur, la grille, et les pièces.
+3. **Gestion de la Grille** : `grid.rs` suit l'état de la grille et valide les coups.
+4. **Placement des Pièces** : `piece.rs` trouve les placements valides et fournit les coordonnées, en gérant aussi la recherche du meilleur emplacement pour les pièces.
+5. **Calcul des Distances** : `distance.rs` calcule les distances entre les pièces et les coordonnées ennemies.
+6. **Évaluation des Scores** : `score.rs` évalue les placements en fonction de plusieurs critères heuristiques.
+
+### 🧠 Aperçu de la Logique du Bot
+
+La logique du bot repose sur une stratégie de maximisation du territoire tout en minimisant les risques liés à l'adversaire. Voici un résumé simplifié :
+
+1. **Analyse des Pièces** : À chaque tour, le bot commence par analyser la pièce fournie par le moteur de jeu. Il vérifie les dimensions, la forme, et les points de chevauchement viables, dans le but de positionner la pièce de manière à étendre efficacement son territoire contrôlé.
+
+2. **Recherche de Placement Valide** : Le bot calcule tous les placements possibles sur la grille. Il s'assure que le placement :
+    - Chevauche exactement une fois son propre territoire.
+    - Évite tout chevauchement avec le territoire de l'adversaire.
+
+3. **Évaluation et Sélection** : Chaque placement valide est évalué à l'aide d'un système de notation de base qui privilégie :
+    - L'extension du territoire du bot vers les zones non revendiquées.
+    - L'évitement des coups trop proches du territoire de l'adversaire, réduisant ainsi les risques de blocage.
+
+4. **Exécution du Mouvement Optimal** : Une fois le meilleur placement identifié, le bot renvoie les coordonnées au moteur de jeu, finalisant ainsi le coup.
+
+5. **Stratégie Adaptative** : Si aucun placement valide n'est trouvé, le bot sort gracieusement. Le bot s'adapte en fonction de l'espace libre restant, ajustant dynamiquement sa stratégie entre expansion offensive et positionnement défensif en fonction de l'état du jeu.
+
+Cette approche garantit une capture efficace du territoire tout en minimisant les risques liés aux coups de l'adversaire, aboutissant à un style de jeu flexible et stratégique.
+
+## 🛠️ Installation et Utilisation sur Linux & macOS
+
+### 🐳 Configuration de Docker
+Téléchargez les fichiers de l'image Docker ici : [Télécharger l'image Docker](https://assets.01-edu.org/filler/filler.zip)
+
+1. **Construire l'Image Docker** :
+    - Décompressez le dossier `docker_image` et naviguez à l'intérieur :
+      ```bash
+      docker build -t filler .
+      ```
+
+2. **Lancer le Conteneur Docker** :
+    - Montez le répertoire de la solution dans Docker :
+      ```bash
+      docker run -v "$(pwd)/solution":/filler/solution -it filler
+      ```
+    - Le dossier `solution` sur la machine hôte est monté, vous permettant d'éditer les fichiers avec votre éditeur préféré en dehors de Docker et de tester dans Docker.
+
+### 🚀 Compiler et Exécuter
+Dans le terminal Docker :
+
+1. **Compiler la Solution** :
+   ```bash
+   cd solution
+   cargo build --release
+   ```
+
+2. **Lancer le Jeu** :
+   ```bash
+   ./game_engine -f maps/map01 -p1 robots/bender -p2 solution/target/release/solution
+   ```
+
+### 📖 Contrôles du Jeu
+- À chaque tour, le moteur de jeu fournit une grille et une pièce. Affichez les coordonnées dans le format :
+  ```plaintext
+  X Y\n
+  ```
+  Par exemple :
+  ```plaintext
+  7 2\n
+  ```
+
+- Si aucun placement valide n'est possible, affichez `0 0\n`.
+
+### 💡 Exemple de Partie
+Pour lancer une partie entre `bender` et `terminator` sur `map01`, utilisez :
+```bash
+./game_engine -f maps/map01 -p1 robots/bender -p2 robots/terminator
+```
+
+### 🔧 Flags du Moteur de Jeu
+Voici des flags supplémentaires pour personnaliser le gameplay :
+- `-f, -file` : Chemin vers le fichier de carte.
+- `-p1, -player1` : Chemin vers l'exécutable du Joueur 1.
+- `-p2, -player2` : Chemin vers l'exécutable du Joueur 2.
+- `-q, -quiet` : Mode silencieux.
+- `-r, -refresh` : Ajuster le taux de rafraîchissement.
+- `-s, -seed` : Utiliser une graine spécifique pour la reproductibilité.
+- `-t, -time` : Définir un délai d'attente (par défaut 10 secondes).
+
+Avec cette configuration, vous êtes prêt à développer, tester et conquérir dans Filler ! Bonne chance, et que la meilleure stratégie gagne ! 🎉

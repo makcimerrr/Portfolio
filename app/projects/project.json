@@ -106,5 +106,14 @@
     "type": "Project",
     "path": "/projects/discord-bot",
     "slug": "discord-bot"
+  },
+  {
+    "published": true,
+    "title": "Filler",
+    "description": "Filler is an algorithmic game where two players fight on a map. The goal is to collect as many points as possible by placing pieces on the map. The game ends when a piece can no longer be placed on the map.",
+    "date": "2024-11-22",
+    "type": "Project",
+    "path": "/projects/filler",
+    "slug": "filler"
   }
 ]
