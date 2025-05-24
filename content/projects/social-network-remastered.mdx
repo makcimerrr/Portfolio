@@ -1,0 +1,153 @@
+---
+title: Social Network Project Remastered
+description: A full-stack social network app built with Go and Next.js, featuring user authentication, posts, messaging, and real-time notifications.
+date: 2099-05-29
+image: /social-network-remastered.png?height=auto&width=auto
+tags: ["Go", "Next.js", "Tailwind CSS", "SQLite", "Docker", "Redis", "PostgreSQL"]
+github: https://github.com/makcimerrr/social-network-app
+featured: true
+---
+
+# 🚀 Réseau Social - Projet Fullstack Dockerisé
+
+Ce projet est une base complète pour développer un **réseau social moderne**, combinant **frontend React (Next.js)**, **backend en Go**, **base de données PostgreSQL**, **Redis**, **MinIO**, et **Maildev**, le tout orchestré via **Docker Compose** pour une expérience de développement cohérente et reproductible.
+
+---
+
+## 🧠 Philosophie du Projet
+
+L’objectif est de créer une architecture **modulaire**, **performante** et **scalable**, adaptée aux fonctionnalités clés d’un réseau social : gestion des utilisateurs, messagerie instantanée, gestion de fichiers, notifications, etc.
+
+Chaque service est **conteneurisé** pour isoler les responsabilités et permettre une montée en charge ou un déploiement indépendant à terme.
+
+---
+
+## 🛠️ Technologies Utilisées
+
+### 🔵 Frontend : **Next.js (React)**
+
+- Framework fullstack basé sur React.
+- Rendu côté serveur (SSR) et génération statique (SSG) pour une performance optimale.
+- Idéal pour un SEO performant.
+- Communication avec le backend via des API REST.
+
+> Le frontend est construit dans le dossier **social-network/** et sert l’interface utilisateur principale.
+
+---
+
+### 🟡 Backend : **Go (Golang)**
+
+- Langage compilé, hautes performances, faible empreinte mémoire.
+- Conçu pour la concurrence, parfait pour un backend réactif (chat, notifications, API).
+- Structure modulaire et simple, idéale pour les microservices.
+
+> Le backend est situé dans le dossier **backend/**.
+
+---
+
+### 🟣 Base de données : **PostgreSQL**
+
+- Base de données relationnelle robuste et open source.
+- Supporte les types complexes, les relations, les transactions ACID.
+- Parfaitement adapté pour stocker les utilisateurs, publications, commentaires, messages privés, etc.
+
+> Le script **init.sql** initialise la base avec une table de démonstration.
+
+---
+
+### 🔴 Redis
+
+- Base de données en mémoire ultra-rapide.
+- Utilisé ici pour :
+  - Stocker les sessions utilisateur.
+  - Gérer les notifications en temps réel.
+  - Implémenter un système de chat performant.
+- Peut aussi servir à de la mise en cache pour alléger la charge sur la base de données.
+
+---
+
+### 🟠 MinIO
+
+- Alternative open source à Amazon S3.
+- Fournit un système de stockage d’objets compatible avec le protocole S3.
+- Parfait pour héberger les **avatars utilisateurs**, **fichiers envoyés**, **pièces jointes**, etc.
+
+> MinIO expose à la fois une API (port 9000) et une interface admin (port 9001).
+
+---
+
+### 📧 Maildev
+
+- Serveur SMTP léger pour le développement.
+- Permet de simuler l’envoi d’e-mails (confirmation, réinitialisation de mot de passe, etc.).
+- Accessible via une interface web sur le port 1080.
+- Aucun e-mail n’est réellement envoyé : ils sont capturés et consultables directement.
+
+---
+
+### 🛜 pgAdmin
+
+- Interface graphique web pour interagir facilement avec la base PostgreSQL.
+- Permet de visualiser, créer et modifier les tables, utilisateurs, requêtes, etc.
+- Très utile pour les développeurs qui préfèrent une interface plutôt que la ligne de commande SQL.
+
+> Accessible via une interface admin (port 5050).
+
+---
+
+## 🐳 Orchestration avec Docker Compose
+
+Tous les services sont définis dans le fichier **docker-compose.yml** :
+
+- Les conteneurs sont interconnectés sur un réseau privé **app-network**.
+- Chaque service utilise une configuration isolée et peut être reconstruit indépendamment.
+- Des volumes sont utilisés pour la persistance des données PostgreSQL et MinIO.
+
+---
+
+## 🧪 Environnement de Développement
+
+Des scripts sont inclus pour simplifier l'utilisation :
+
+- **dev.sh** : Lancement complet de l’environnement.
+- **stop.sh** : Arrêt propre des conteneurs.
+- **reset.sh** : Réinitialisation complète de l’environnement (⚠️ supprime données/images).
+
+Les fichiers **.env.docker** pour le frontend et le backend contiennent les variables d’environnement utilisées à l’intérieur des conteneurs. Ils sont automatiquement copiés au moment du lancement.
+
+---
+
+## 🧩 Pourquoi ce choix de stack ?
+
+- **Next.js** : Productivité élevée, rendu SSR, écosystème React mature
+- **Go** : Performance, simplicité, parfait pour les APIs scalables
+- **PostgreSQL** : Fiabilité, robustesse, support des relations complexes
+- **Redis** : Idéal pour sessions, chat en temps réel, pub/sub
+- **MinIO** : Stockage d’objets léger et compatible S3
+- **Maildev** : Développement et test d’envois d’e-mails localement
+- **Docker** : Environnement isolé, reproductibilité, simplicité de déploiement
+
+---
+
+## ✅ Objectifs à venir
+
+- Authentification JWT + refresh token
+- Interface utilisateur complète (profil, flux, publication)
+- Système de chat avec WebSocket ou Redis Pub/Sub
+- Gestion des médias (upload, partage, etc.)
+- Système de notifications (likes, commentaires, messages)
+
+---
+
+## 👨‍💻 Pour commencer
+
+1. Cloner le projet
+2. Lancer **./dev.sh**
+3. Aller sur **http://localhost:3000** pour voir le frontend
+4. Accéder à Maildev : **http://localhost:1080**
+5. Accéder à pgAdmin : **http://localhost:5050**
+6. L’API Go est disponible depuis le frontend via l’URL **http://backend:8080** (grâce au réseau Docker)
+
+---
+
+**Bon code !** 🚀

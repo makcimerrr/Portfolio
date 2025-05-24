@@ -1,0 +1,48 @@
+---
+title: Bot Discord Recherches d'Emplois - Aide aux Apprenants
+description: 🤖 Ce projet consiste en un bot Discord qui automatise la création de threads pour les offres d'emploi publiées sur LinkedIn et Indeed. Le bot récupère les dernières offres pour des développeurs en alternance à Rouen, France, les affiche dans un canal dédié et met à jour les informations deux fois par jour. En plus de cela, il offre une commande manuelle pour forcer la mise à jour des offres d'emploi, assurant ainsi que les utilisateurs restent informés en temps réel des opportunités disponibles.Le bot facilite également la mise en relation des apprenants en génie logiciel à travers une fonctionnalité de réaction à un message spécifique. En réagissant, les utilisateurs signalent qu'ils ont besoin d'aide et sont automatiquement attribués à un rôle spécifique. Un message est alors posté dans un canal dédié pour encourager la collaboration et le soutien entre les membres.
+date: 2024-06-14
+image: /discord-bot.png?height=auto&width=auto
+tags: ["Python", "Discord", "Bot", "API"]
+github: https://github.com/makcimerrr/bot-discord-zone01
+---
+
+# 🤖 Bot d'Aide pour Apprenants
+
+Ce bot Discord est conçu pour aider à la gestion des offres d'emploi et à la coordination des demandes d'aide au sein d'un serveur Discord spécifique.
+
+## Fonctionnalités
+
+- **Mise à jour des Offres d'Emploi :** Le bot récupère automatiquement les offres d'emploi depuis plusieurs sources (LinkedIn, Indeed, et une API personnalisée) et les publie dans un canal dédié.
+- **Gestion des Demandes d'Aide :** Les utilisateurs peuvent signaler qu'ils ont besoin d'aide en réagissant à un message spécifique. Le bot leur attribue un rôle et modifie leur pseudo pour indiquer qu'ils ont besoin d'aide.
+- **Planification Automatique :** Les offres d'emploi sont mises à jour deux fois par jour (matin et soir) grâce à un scheduler intégré.
+
+## Configuration
+
+Pour utiliser ce bot, vous devez :
+1. Avoir Python 3.7+ installé.
+2. Installer les dépendances nécessaires via **pip install -r requirements.txt**.
+3. Définir les variables d'environnement requises, notamment le TOKEN Discord.
+
+## Variables d'Environnement
+
+- **TOKEN**: Token d'authentification de votre bot Discord.
+
+## Utilisation
+
+Pour démarrer le bot, exécutez le fichier Python **bot.py**. Assurez-vous que votre bot a les autorisations nécessaires sur votre serveur Discord pour modifier les pseudonymes et gérer les rôles.
+
+## Contribuer
+
+Si vous souhaitez contribuer à ce projet, vous pouvez :
+
+- Soumettre des suggestions d'amélioration via les issues.
+- Proposer des pull requests pour résoudre des problèmes ou ajouter des fonctionnalités.
+
+## Auteurs
+
+Ce bot a été créé par [Maxime Dubois](https://github.com/makcimerrr) pour [Zone01 Rouen Normandie](https://zone01rouennormandie.org).
+
+## Licence
+
+Ce projet est sous licence MIT. Pour plus de détails, consultez le fichier LICENSE.

@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* MDX Styles */
+.mdx {
+  @apply text-foreground;
+}
+
+.mdx h1,
+.mdx h2,
+.mdx h3,
+.mdx h4,
+.mdx h5,
+.mdx h6 {
+  @apply font-bold tracking-tight text-foreground mt-8 mb-4;
+}
+
+.mdx h1 {
+  @apply text-3xl;
+}
+
+.mdx h2 {
+  @apply text-2xl border-b pb-2;
+}
+
+.mdx h3 {
+  @apply text-xl;
+}
+
+.mdx h4 {
+  @apply text-lg;
+}
+
+.mdx p {
+  @apply mb-4 leading-7;
+}
+
+.mdx ul,
+.mdx ol {
+  @apply mb-4 ml-6;
+}
+
+.mdx ul {
+  @apply list-disc;
+}
+
+.mdx ol {
+  @apply list-decimal;
+}
+
+.mdx li {
+  @apply mb-1;
+}
+
+.mdx a {
+  @apply text-primary underline underline-offset-4 hover:text-primary/80;
+}
+
+.mdx blockquote {
+  @apply border-l-4 border-border pl-4 italic my-4;
+}
+
+.mdx pre {
+  @apply p-4 rounded-lg bg-muted overflow-x-auto my-4;
+}
+
+.mdx code {
+  @apply bg-muted px-1 py-0.5 rounded text-sm;
+}
+
+.mdx pre code {
+  @apply bg-transparent p-0 text-sm;
+}
+
+.mdx img {
+  @apply rounded-lg my-4;
+}
+
+.mdx hr {
+  @apply my-8 border-border;
+}
+
+.mdx table {
+  @apply w-full border-collapse my-4;
+}
+
+.mdx th,
+.mdx td {
+  @apply border border-border p-2 text-left;
+}
+
+.mdx th {
+  @apply bg-muted font-semibold;
+}
+
