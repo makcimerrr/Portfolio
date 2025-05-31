@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Developer Portfolio",
+  name: "Maxime Dubois - Developer Portfolio",
   description: "A modern developer portfolio built with Next.js and shadcn/ui",
   url: "https://makcimerrr.com",
   email: "maxim3pro@proton.me",
