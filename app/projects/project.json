@@ -124,5 +124,23 @@
     "type": "Project",
     "path": "/projects/filler",
     "slug": "filler"
+  },
+  {
+    "published": true,
+    "title": "BarCode Scanner",
+    "description": "A barcode scanner app built with React Native and Expo.",
+    "date": "",
+    "repository": "https://github.com/makcimerrr/BarCodeReaderApp",
+    "_id": "projects/barcode.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/barcode.mdx",
+      "sourceFileName": "barcode.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/barcode"
+    },
+    "type": "Project",
+    "path": "/projects/barcode",
+    "slug": "barcode"
   }
 ]
